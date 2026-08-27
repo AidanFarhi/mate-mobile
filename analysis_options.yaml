@@ -1,0 +1,20 @@
+# Static analysis configuration. Run with `flutter analyze --fatal-infos`.
+#
+# Full lint list: https://dart.dev/lints
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - ios/**
+    - android/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
+
+linter:
+  rules:
+    - always_declare_return_types
+    - prefer_const_constructors
+    - require_trailing_commas

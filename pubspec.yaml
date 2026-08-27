@@ -1,0 +1,24 @@
+name: shadow_and_light
+description: "Shadow & Light - play chess with your friends."
+publish_to: 'none'
+
+# build-name maps to CFBundleShortVersionString, build-number to CFBundleVersion.
+version: 1.0.0+1
+
+# Keep in sync with .fvmrc, which pins the SDK for contributors and CI.
+environment:
+  sdk: ^3.13.1
+  flutter: '>=3.47.1'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
