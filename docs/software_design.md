@@ -1,4 +1,4 @@
-# Shadow & Light: Minimal Chess — Software Design Doc
+# Mate: Minimal Chess — Software Design Doc
 
 # Overview
 

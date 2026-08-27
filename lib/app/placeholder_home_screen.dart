@@ -12,7 +12,7 @@ class PlaceholderHomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Shadow & Light', style: theme.textTheme.headlineMedium),
+            Text('Mate', style: theme.textTheme.headlineMedium),
             const SizedBox(height: 8),
             Text(
               'Chess with your friends.',

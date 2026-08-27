@@ -1,5 +1,5 @@
-name: shadow_and_light
-description: "Shadow & Light - play chess with your friends."
+name: mate
+description: "Mate - minimal chess with your friends."
 publish_to: 'none'
 
 # build-name maps to CFBundleShortVersionString, build-number to CFBundleVersion.

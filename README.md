@@ -1,4 +1,4 @@
-# Shadow & Light
+# Mate
 
 Play chess with your friends. Flutter client, targeting iOS first.
 
