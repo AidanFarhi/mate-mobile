@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>body{margin:0;background:#E9E7E1;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#3F5138}a:hover{color:#2C3927}input{font-family:inherit}input:focus{outline:none}</style></helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 24px 56px;box-sizing:border-box">
+
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<p style="margin:0;font:500 12px/1.3 'JetBrains Mono',monospace;color:rgba(27,34,28,.55);letter-spacing:.06em">MATE: MINIMAL CHESS · V1 PROTOTYPE · iPhone 402 × 874</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:520px">
+<sc-for list="{{ jump }}" as="j" hint-placeholder-count="9">
+<span onClick="{{ j.go }}" style="font:400 11px 'JetBrains Mono',monospace;color:rgba(27,34,28,.7);background:{{ j.bg }};border:1px solid rgba(27,34,28,.14);border-radius:20px;padding:5px 10px;cursor:pointer">{{ j.label }}</span>
+</sc-for>
+</div>
+</div>
+
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" keyboard="{{ kb }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#1C201A;position:relative;overflow:hidden">
+<div style="flex:1;overflow:auto;display:flex;flex-direction:column;min-height:0">
+
+<sc-if value="{{ isSignin }}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:62px 28px 48px;box-sizing:border-box">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
+    <div style="display:flex;align-items:center">
+      <div style="width:60px;height:60px;border-radius:50%;background:#EDEEE7;color:#1B221C;display:grid;place-items:center;font:400 34px serif">♞</div>
+      <div style="width:60px;height:60px;border-radius:50%;background:#3A4235;color:#EDEEE7;display:grid;place-items:center;font:400 34px serif;margin-left:-16px">♞</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:9px">
+      <h1 style="margin:0;font:600 27px/1.15 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.02em">Mate</h1>
+      <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.16em">MINIMAL CHESS</span>
+      <p style="margin:0;font:400 15px/1.45 'Instrument Sans',sans-serif;color:rgba(237,238,231,.5);text-align:center;max-width:24ch">Chess with the people you actually know. Nothing else.</p>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div onClick="{{ signIn }}" style="height:52px;border-radius:14px;background:#EDEEE7;color:#14170F;display:grid;place-items:center;font:500 16px 'Instrument Sans',sans-serif;cursor:pointer">Sign in with Apple</div>
+    <p style="margin:0;font:400 11px/1.5 'JetBrains Mono',monospace;color:rgba(237,238,231,.35);text-align:center">Untimed games · one at a time · friends only</p>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSetup }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:64px 24px 18px;box-sizing:border-box;gap:20px;overflow:hidden">
+  <div style="display:flex;flex-direction:column;gap:7px">
+    <h2 style="margin:0;font:600 22px/1.2 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">Set up your profile</h2>
+    <p style="margin:0;font:400 13px/1.45 'Instrument Sans',sans-serif;color:rgba(237,238,231,.45)">Pick a username and an icon. Both can't be changed later.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <label style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">USERNAME</label>
+    <input value="{{ username }}" onChange="{{ onUsername }}" onFocus="{{ onNameFocus }}" onBlur="{{ onNameBlur }}" placeholder="e.g. mira.k" style="height:50px;border-radius:13px;border:1px solid rgba(237,238,231,.14);background:rgba(237,238,231,.055);color:#EDEEE7;font:400 16px 'Instrument Sans',sans-serif;padding:0 15px;box-sizing:border-box;width:100%">
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:{{ nameHintColor }}">{{ nameHint }}</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:11px">
+    <label style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">ICON</label>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px">
+      <sc-for list="{{ iconChoices }}" as="ic" hint-placeholder-count="8">
+      <div onClick="{{ ic.pick }}" style="aspect-ratio:1;border-radius:50%;background:{{ ic.bg }};color:{{ ic.fg }};display:grid;place-items:center;font:400 26px serif;cursor:pointer;box-shadow:{{ ic.ring }}">{{ ic.glyph }}</div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:1"></div>
+  <div onClick="{{ finishSetup }}" style="height:52px;border-radius:14px;background:{{ ctaBg }};color:{{ ctaFg }};display:grid;place-items:center;font:500 16px 'Instrument Sans',sans-serif;cursor:pointer">Continue</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:20px">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.1em">MATE</span>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4)">{{ myName }}</span>
+  </div>
+
+  <sc-if value="{{ hasActive }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;flex-direction:column;gap:11px">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">ACTIVE GAME</span>
+    <div onClick="{{ openBoard }}" style="background:rgba(237,238,231,.055);border:1px solid rgba(237,238,231,.09);border-radius:18px;padding:15px;display:flex;align-items:center;gap:14px;cursor:pointer">
+      <div style="width:106px;height:106px;border-radius:4px;overflow:hidden;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);flex:none">
+        <sc-for list="{{ mini }}" as="m" hint-placeholder-count="64">
+        <div style="background:{{ m.bg }};display:grid;place-items:center;min-height:0;overflow:hidden"><span style="font-family:serif;font-size:10px;line-height:1;color:{{ m.pc }}">{{ m.glyph }}</span></div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="width:26px;height:26px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 14px serif">{{ opIcon }}</div>
+          <span style="font:500 15px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ opName }}</span>
+        </div>
+        <span style="font:500 13px 'Instrument Sans',sans-serif;color:{{ turnColor }}">{{ turnText }}</span>
+        <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ activeMeta }}</span>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ noActive }}" hint-placeholder-val="{{ false }}">
+  <div style="background:rgba(237,238,231,.04);border:1px dashed rgba(237,238,231,.14);border-radius:18px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;gap:6px">
+    <span style="font:500 15px 'Instrument Sans',sans-serif;color:#EDEEE7">No active game</span>
+    <span style="font:400 13px/1.4 'Instrument Sans',sans-serif;color:rgba(237,238,231,.45);text-align:center">Challenge a friend below. One game at a time.</span>
+  </div>
+  </sc-if>
+
+  <div style="display:flex;flex-direction:column;gap:11px;flex:1;min-height:0">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">FRIENDS</span>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ friends }}" as="f" hint-placeholder-count="3">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 2px;border-bottom:1px solid rgba(237,238,231,.08)">
+        <div onClick="{{ f.open }}" style="width:34px;height:34px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 17px serif;cursor:pointer">{{ f.icon }}</div>
+        <div onClick="{{ f.open }}" style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;cursor:pointer">
+          <span style="font:500 14px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ f.name }}</span>
+          <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ f.h2h }} vs you</span>
+        </div>
+        <span onClick="{{ f.challenge }}" style="font:500 12px 'Instrument Sans',sans-serif;color:{{ f.ctaColor }};background:{{ f.ctaBg }};border-radius:16px;padding:7px 13px;cursor:pointer">{{ f.cta }}</span>
+      </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isBoard }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 0 40px;box-sizing:border-box">
+  <div style="padding:0 20px">
+    <span onClick="{{ back }}" style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.55);cursor:pointer">‹ Home</span>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+    <div style="display:flex;align-items:center;gap:11px;padding:0 20px">
+      <div style="width:36px;height:36px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 18px serif;flex:none">{{ opIcon }}</div>
+      <div style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+        <span style="display:flex;align-items:center;gap:7px;font:500 15px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ opName }}<span style="width:6px;height:6px;border-radius:50%;background:{{ opDot }}"></span></span>
+        <span style="min-height:14px;font-family:serif;font-size:13px;line-height:1.1;letter-spacing:1px;color:rgba(237,238,231,.5)">{{ capturedTop }}</span>
+      </div>
+    </div>
+    <div style="width:402px;height:402px;overflow:hidden;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr)">
+      <sc-for list="{{ squares }}" as="sq" hint-placeholder-count="64">
+      <div onClick="{{ sq.tap }}" style="position:relative;display:grid;place-items:center;min-height:0;overflow:hidden;background:{{ sq.bg }};box-shadow:{{ sq.ring }};cursor:pointer">
+        <span style="width:{{ sq.chipW }};aspect-ratio:1;border-radius:50%;background:{{ sq.chip }};display:grid;place-items:center;font-family:serif;font-size:41px;line-height:1;color:{{ sq.pc }};-webkit-text-stroke:{{ sq.stroke }};text-shadow:{{ sq.shadow }}">{{ sq.glyph }}</span>
+        <span style="position:absolute;width:14px;height:14px;border-radius:50%;background:{{ sq.dot }};pointer-events:none"></span>
+      </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ showCoords }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid;grid-template-columns:repeat(8,1fr);justify-items:center;width:402px;font:400 9px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">
+      <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
+    </div>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:11px;padding:0 20px">
+      <div style="width:36px;height:36px;border-radius:50%;background:#EDEEE7;color:#14170F;display:grid;place-items:center;font:400 18px serif;flex:none">{{ myIcon }}</div>
+      <div style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+        <span style="display:flex;align-items:center;gap:7px;font:500 15px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ myName }}<span style="width:6px;height:6px;border-radius:50%;background:{{ myDot }}"></span></span>
+        <span style="min-height:14px;font-family:serif;font-size:13px;line-height:1.1;letter-spacing:1px;color:rgba(237,238,231,.5)">{{ capturedBottom }}</span>
+      </div>
+      <span onClick="{{ askResign }}" style="font:400 12px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.62);background:rgba(237,238,231,.09);border-radius:20px;padding:9px 15px;cursor:pointer;flex:none">Resign</span>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isFriends }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:22px">
+  <h2 style="margin:0;font:600 22px 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">Friends</h2>
+  <div style="background:rgba(237,238,231,.055);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">YOUR CODE</span>
+      <span style="font:500 13px 'JetBrains Mono',monospace;color:#B4C4A8;letter-spacing:.1em">SL-4KQ2</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <input value="{{ addValue }}" onChange="{{ onAdd }}" placeholder="Username or code" style="flex:1;height:42px;border-radius:11px;border:1px solid rgba(237,238,231,.14);background:rgba(237,238,231,.05);color:#EDEEE7;font:400 14px 'Instrument Sans',sans-serif;padding:0 13px;box-sizing:border-box;min-width:0">
+      <span onClick="{{ sendRequest }}" style="font:500 13px 'Instrument Sans',sans-serif;color:#14170F;background:#B4C4A8;border-radius:11px;padding:0 16px;display:grid;place-items:center;cursor:pointer">Add</span>
+    </div>
+  </div>
+
+  <sc-if value="{{ hasRequests }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">REQUESTS</span>
+    <sc-for list="{{ requests }}" as="r" hint-placeholder-count="2">
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 2px">
+      <div style="width:34px;height:34px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 17px serif">{{ r.icon }}</div>
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0">
+        <span style="font:500 14px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ r.name }}</span>
+        <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ r.dir }}</span>
+      </div>
+      <span onClick="{{ r.accept }}" style="font:500 12px 'Instrument Sans',sans-serif;color:{{ r.acceptFg }};background:{{ r.acceptBg }};border-radius:16px;padding:7px 12px;cursor:pointer">{{ r.acceptLabel }}</span>
+      <span onClick="{{ r.decline }}" style="font:400 12px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.5);cursor:pointer">{{ r.declineLabel }}</span>
+    </div>
+    </sc-for>
+  </div>
+  </sc-if>
+
+  <div style="display:flex;flex-direction:column;gap:10px;flex:1;min-height:0">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">{{ friendsCount }}</span>
+    <sc-for list="{{ friends }}" as="f" hint-placeholder-count="3">
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 2px;border-bottom:1px solid rgba(237,238,231,.08)">
+      <div onClick="{{ f.open }}" style="width:34px;height:34px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 17px serif;cursor:pointer">{{ f.icon }}</div>
+      <div onClick="{{ f.open }}" style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;cursor:pointer">
+        <span style="font:500 14px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ f.name }}</span>
+        <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ f.h2h }} vs you</span>
+      </div>
+      <span onClick="{{ f.challenge }}" style="font:500 12px 'Instrument Sans',sans-serif;color:{{ f.ctaColor }};background:{{ f.ctaBg }};border-radius:16px;padding:7px 13px;cursor:pointer">{{ f.cta }}</span>
+    </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:22px">
+  <span onClick="{{ back }}" style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.55);cursor:pointer">‹ Friends</span>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div style="width:62px;height:62px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 30px serif">{{ pfIcon }}</div>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <span style="font:600 20px 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">{{ pfName }}</span>
+      <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ pfSince }}</span>
+    </div>
+  </div>
+  <div style="display:flex;gap:9px">
+    <sc-for list="{{ pfStats }}" as="s" hint-placeholder-count="3">
+    <div style="flex:1;background:rgba(237,238,231,.055);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:3px">
+      <span style="font:600 20px 'Instrument Sans',sans-serif;color:{{ s.color }}">{{ s.value }}</span>
+      <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35);letter-spacing:.06em">{{ s.label }}</span>
+    </div>
+    </sc-for>
+  </div>
+  <div style="background:rgba(180,196,168,.1);border:1px solid rgba(180,196,168,.2);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:#B4C4A8;letter-spacing:.06em">HEAD TO HEAD</span>
+    <span style="font:600 17px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ pfH2H }}</span>
+    <div style="height:6px;border-radius:6px;overflow:hidden;display:flex">
+      <span style="width:{{ pfBarW }};background:#B4C4A8"></span>
+      <span style="flex:1;background:rgba(237,238,231,.12)"></span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:9px;flex:1;min-height:0">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">MATCH HISTORY</span>
+    <sc-for list="{{ pfGames }}" as="g" hint-placeholder-count="4">
+    <div onClick="{{ g.open }}" style="display:flex;align-items:center;gap:11px;padding:11px 2px;border-bottom:1px solid rgba(237,238,231,.08);cursor:pointer">
+      <span style="width:26px;height:26px;border-radius:8px;background:{{ g.chipBg }};color:{{ g.chipFg }};display:grid;place-items:center;font:600 11px 'JetBrains Mono',monospace">{{ g.chip }}</span>
+      <span style="font:400 13px 'Instrument Sans',sans-serif;color:#EDEEE7;flex:1">{{ g.summary }}</span>
+      <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ g.date }}</span>
+    </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <span onClick="{{ pfChallenge }}" style="flex:1;height:48px;border-radius:13px;background:{{ pfCtaBg }};color:{{ pfCtaFg }};display:grid;place-items:center;font:500 15px 'Instrument Sans',sans-serif;cursor:pointer">{{ pfCta }}</span>
+    <span onClick="{{ removeFriend }}" style="font:400 12px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.4);padding:0 6px;cursor:pointer">Remove</span>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isYou }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:22px">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div style="width:62px;height:62px;border-radius:50%;background:#EDEEE7;color:#14170F;display:grid;place-items:center;font:400 30px serif">{{ myIcon }}</div>
+    <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+      <span style="font:600 20px 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">{{ myName }}</span>
+      <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ myRecord }}</span>
+    </div>
+    <span onClick="{{ openSettings }}" style="font:400 13px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.5);cursor:pointer">Settings</span>
+  </div>
+  <div style="display:flex;gap:9px">
+    <sc-for list="{{ myStats }}" as="s" hint-placeholder-count="3">
+    <div style="flex:1;background:rgba(237,238,231,.055);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:3px">
+      <span style="font:600 20px 'Instrument Sans',sans-serif;color:{{ s.color }}">{{ s.value }}</span>
+      <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35);letter-spacing:.06em">{{ s.label }}</span>
+    </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:9px;flex:1;min-height:0">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">GAME HISTORY</span>
+    <sc-for list="{{ history }}" as="g" hint-placeholder-count="5">
+    <div onClick="{{ g.open }}" style="display:flex;align-items:center;gap:11px;padding:12px 2px;border-bottom:1px solid rgba(237,238,231,.08);cursor:pointer">
+      <span style="width:26px;height:26px;border-radius:8px;background:{{ g.chipBg }};color:{{ g.chipFg }};display:grid;place-items:center;font:600 11px 'JetBrains Mono',monospace">{{ g.chip }}</span>
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0">
+        <span style="font:400 14px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ g.opponent }}</span>
+        <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ g.summary }}</span>
+      </div>
+      <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ g.date }}</span>
+    </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isGame }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:20px">
+  <span onClick="{{ back }}" style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.55);cursor:pointer">‹ Back</span>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <span style="font:600 20px 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">{{ gdTitle }}</span>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.35)">{{ gdMeta }}</span>
+  </div>
+  <div style="background:rgba(237,238,231,.055);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;overflow:auto">
+    <span style="font:500 11px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4);letter-spacing:.06em">MOVES</span>
+    <sc-for list="{{ gdMoves }}" as="m" hint-placeholder-count="8">
+    <div style="display:grid;grid-template-columns:30px 1fr 1fr;font:400 13px 'JetBrains Mono',monospace;color:#EDEEE7;padding:3px 0">
+      <span style="color:rgba(237,238,231,.3)">{{ m.no }}</span><span>{{ m.w }}</span><span>{{ m.b }}</span>
+    </div>
+    </sc-for>
+  </div>
+  <p style="margin:0;font:400 11px/1.5 'JetBrains Mono',monospace;color:rgba(237,238,231,.3)">Every move is stored with its resulting position. Move-by-move replay and analysis land post-V1.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;padding:66px 20px 12px;box-sizing:border-box;gap:22px">
+  <span onClick="{{ back }}" style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.55);cursor:pointer">‹ You</span>
+  <h2 style="margin:0;font:600 22px 'Instrument Sans',sans-serif;color:#EDEEE7;letter-spacing:-.01em">Settings</h2>
+  <div style="display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;padding:15px 2px;border-bottom:1px solid rgba(237,238,231,.08)">
+      <span style="font:400 15px 'Instrument Sans',sans-serif;color:#EDEEE7;flex:1">Username</span>
+      <span style="font:400 14px 'JetBrains Mono',monospace;color:rgba(237,238,231,.4)">{{ myName }}</span>
+    </div>
+    <div onClick="{{ signOut }}" style="display:flex;align-items:center;padding:15px 2px;border-bottom:1px solid rgba(237,238,231,.08);cursor:pointer">
+      <span style="font:400 15px 'Instrument Sans',sans-serif;color:#EDEEE7;flex:1">Sign out</span>
+      <span style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.3)">›</span>
+    </div>
+    <div onClick="{{ signOut }}" style="display:flex;align-items:center;padding:15px 2px;border-bottom:1px solid rgba(237,238,231,.08);cursor:pointer">
+      <span style="font:400 15px 'Instrument Sans',sans-serif;color:#C99B8B;flex:1">Delete account</span>
+      <span style="font:400 14px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.3)">›</span>
+    </div>
+  </div>
+  <p style="margin:0;font:400 11px/1.6 'JetBrains Mono',monospace;color:rgba(237,238,231,.3)">Deleting removes your account, friendships and games permanently.</p>
+  <div style="flex:1"></div>
+  <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(237,238,231,.25);text-align:center">V1.0 · build 1</span>
+</div>
+</sc-if>
+
+</div>
+
+<sc-if value="{{ showTabs }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;border-top:1px solid rgba(237,238,231,.09);padding:10px 0 30px;background:#1C201A">
+  <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+  <div onClick="{{ t.go }}" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 0;cursor:pointer">
+    <span style="font:500 12px 'Instrument Sans',sans-serif;color:{{ t.color }};letter-spacing:.02em">{{ t.label }}</span>
+    <span style="width:5px;height:5px;border-radius:50%;background:{{ t.dot }}"></span>
+  </div>
+  </sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ resignOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:rgba(8,10,7,.66);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;z-index:80">
+  <div style="background:#262B24;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="font:600 17px 'Instrument Sans',sans-serif;color:#EDEEE7">Resign this game?</span>
+      <span style="font:400 13px/1.45 'Instrument Sans',sans-serif;color:rgba(237,238,231,.5)">{{ opName }} takes the win. The game moves to your history.</span>
+    </div>
+    <div style="display:flex;gap:10px">
+      <span onClick="{{ dismiss }}" style="flex:1;height:48px;border-radius:13px;background:rgba(237,238,231,.09);color:#EDEEE7;display:grid;place-items:center;font:500 15px 'Instrument Sans',sans-serif;cursor:pointer">Keep playing</span>
+      <span onClick="{{ doResign }}" style="flex:1;height:48px;border-radius:13px;background:#C99B8B;color:#20140F;display:grid;place-items:center;font:500 15px 'Instrument Sans',sans-serif;cursor:pointer">Resign</span>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ resultOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:rgba(8,10,7,.72);display:grid;place-items:center;padding:24px;z-index:80">
+  <div style="background:#262B24;border-radius:22px;padding:26px;display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;box-sizing:border-box">
+    <span style="font:400 40px serif;color:#EDEEE7">{{ resultGlyph }}</span>
+    <span style="font:600 20px 'Instrument Sans',sans-serif;color:#EDEEE7">{{ resultTitle }}</span>
+    <span style="font:400 13px/1.45 'Instrument Sans',sans-serif;color:rgba(237,238,231,.5);text-align:center">{{ resultSub }}</span>
+    <span onClick="{{ closeResult }}" style="margin-top:6px;width:100%;height:48px;border-radius:13px;background:#B4C4A8;color:#14170F;display:grid;place-items:center;font:500 15px 'Instrument Sans',sans-serif;cursor:pointer">Back to home</span>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ toastOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:20px;right:20px;bottom:110px;background:#3A4235;border-radius:14px;padding:13px 15px;z-index:90">
+  <span style="font:400 13px/1.4 'Instrument Sans',sans-serif;color:#EDEEE7">{{ toast }}</span>
+</div>
+</sc-if>
+
+</div>
+</x-import>
+
+<p style="margin:0;max-width:520px;font:400 12px/1.6 'Instrument Sans',sans-serif;color:rgba(27,34,28,.5);text-align:center">Live: tap a piece to see its legal moves, move, and mira.k answers over the simulated socket. Resign to see the one-active-game rule free up a new challenge.</p>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:1060},&quot;pieceStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Solid&quot;,&quot;Disc&quot;],&quot;default&quot;:&quot;Solid&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Board&quot;},&quot;showCoordinates&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Board&quot;},&quot;latency&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:1200,&quot;step&quot;:50,&quot;default&quot;:350,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Network&quot;}}">
+class Component extends DCLogic {
+  GL = { p: '♟', n: '♞', b: '♝', r: '♜', q: '♛', k: '♚' };
+  ICONS = ['♞', '♜', '♝', '♛', '♚', '♟', '◆', '●'];
+
+  init() {
+    const back = ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'];
+    const b = new Array(64).fill(null);
+    for (let f = 0; f < 8; f++) {
+      b[f] = 'b' + back[f];
+      b[8 + f] = 'bp';
+      b[48 + f] = 'wp';
+      b[56 + f] = 'w' + back[f];
+    }
+    return b;
+  }
+
+  state = {
+    screen: 'signin', prev: 'home', tab: 'play',
+    username: '', icon: 0, addValue: '',
+    board: this.init(), turn: 'w', sel: null, legal: [], last: null, moves: [], capW: [], capB: [],
+    active: { op: 'mira.k', icon: '♞' },
+    syncing: false, thinking: false,
+    resignOpen: false, result: null, toast: null,
+    viewFriend: null, viewGame: null,
+    friends: [
+      { name: 'mira.k', icon: '♞', w: 3, l: 1, d: 2, since: 'Friends since Mar 2026' },
+      { name: 'dev.tomas', icon: '♜', w: 5, l: 2, d: 0, since: 'Friends since Jan 2026' },
+      { name: 'ana_p', icon: '♛', w: 0, l: 1, d: 1, since: 'Friends since Jun 2026' }
+    ],
+    requests: [
+      { name: 'kwan.j', icon: '♝', incoming: true },
+      { name: 'sofia_r', icon: '●', incoming: false }
+    ],
+    history: [
+      { op: 'mira.k', res: 'W', why: 'Checkmate', date: '24 Aug', detail: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'Nxd5', 'Nxf7', 'Kxf7', 'Qf3+', 'Ke6', 'Nc3', 'Nb4', 'Qe4#'] },
+      { op: 'dev.tomas', res: 'L', why: 'Resigned', date: '21 Aug', detail: ['d4', 'Nf6', 'c4', 'e6', 'Nf3', 'd5', 'Nc3', 'Be7', 'Bg5', 'h6', 'Bxf6', 'Bxf6', 'e3', 'O-O', 'Rc1', 'c6', 'Bd3', 'Nd7', 'O-O', 'dxc4', 'Bxc4', 'e5', 'd5', 'cxd5'] },
+      { op: 'mira.k', res: 'D', why: 'Agreed draw', date: '18 Aug', detail: ['c4', 'e5', 'Nc3', 'Nf6', 'g3', 'd5', 'cxd5', 'Nxd5', 'Bg2', 'Nb6', 'Nf3', 'Nc6', 'O-O', 'Be7', 'd3', 'O-O', 'Be3', 'Be6', 'Rc1', 'f6', 'Na4', 'Nxa4', 'Qxa4', 'Qd7', 'Rfd1', 'Rfd8'] },
+      { op: 'ana_p', res: 'L', why: 'Checkmate', date: '12 Aug', detail: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'a6', 'Be2', 'e5', 'Nf3', 'Be7', 'O-O', 'O-O', 'Re1', 'Bg4', 'h3', 'Bxf3', 'Bxf3', 'Nbd7', 'Bg5', 'h6', 'Bxf6', 'Nxf6', 'Qd3', 'Qb6', 'Rad1', 'Rad8', 'b3', 'Nh5', 'Ne2', 'Qf2#'] },
+      { op: 'mira.k', res: 'W', why: 'Resigned', date: '09 Aug', detail: ['d4', 'd5', 'c4', 'c6', 'Nf3', 'Nf6', 'Nc3', 'e6', 'Bg5', 'h6', 'Bxf6', 'Qxf6', 'e3', 'Nd7', 'Bd3', 'dxc4', 'Bxc4', 'Bd6', 'O-O', 'O-O', 'e4', 'e5', 'd5', 'cxd5', 'Nxd5', 'Qd8'] },
+      { op: 'dev.tomas', res: 'W', why: 'Checkmate', date: '14 Aug', detail: ['e4', 'e6', 'd4', 'd5', 'Nc3', 'Nf6', 'e5', 'Nfd7', 'f4', 'c5', 'Nf3', 'Nc6', 'Be3', 'Qb6', 'Na4', 'Qa5+', 'c3', 'cxd4', 'b4', 'Nxb4', 'cxb4', 'Qxb4+', 'Bd2', 'Qxa4', 'Qxa4#'] },
+      { op: 'mira.k', res: 'L', why: 'Checkmate', date: '05 Aug', detail: ['Nf3', 'd5', 'g3', 'Nf6', 'Bg2', 'e6', 'O-O', 'Be7', 'd3', 'O-O', 'Nbd2', 'c5', 'e4', 'Nc6', 'Re1', 'b5', 'e5', 'Nd7', 'Nf1', 'b4', 'h4', 'a5', 'N1h2', 'Qb6', 'Ng4', 'h5', 'Nf6+', 'Nxf6', 'exf6', 'Bxf6', 'Bxd5', 'exd5', 'Qxd5', 'Rab8', 'Bg5', 'Ne5', 'Qxf7#'] },
+      { op: 'ana_p', res: 'D', why: 'Threefold repetition', date: '30 Jul', detail: ['e4', 'e5', 'Nf3', 'Nf6', 'Nxe5', 'd6', 'Nf3', 'Nxe4', 'd4', 'd5', 'Bd3', 'Be7', 'O-O', 'Nc6', 'Re1', 'Bg4', 'c4', 'Nf6', 'cxd5', 'Nxd5', 'Nc3', 'Nxc3', 'bxc3', 'O-O'] },
+      { op: 'mira.k', res: 'L', why: 'Resigned', date: '01 Aug', detail: ['d4', 'Nf6', 'Nf3', 'g6', 'c4', 'Bg7', 'Nc3', 'O-O', 'e4', 'd6', 'Be2', 'e5', 'O-O', 'Nc6', 'd5', 'Ne7', 'b4', 'Nh5', 'Re1', 'f5', 'Ng5', 'Nf6', 'Bf3', 'c6', 'Bg4', 'fxe4'] },
+      { op: 'mira.k', res: 'D', why: 'Agreed draw', date: '28 Jul', detail: ['c4', 'c5', 'Nf3', 'Nf6', 'Nc3', 'Nc6', 'g3', 'g6', 'Bg2', 'Bg7', 'O-O', 'O-O', 'd3', 'd6', 'Rb1', 'a6', 'a3', 'Rb8', 'Bd2', 'Bd7'] }
+    ]
+  };
+
+  componentWillUnmount() { this.timers && this.timers.forEach(clearTimeout); }
+  later(fn, ms) { this.timers = this.timers || []; this.timers.push(setTimeout(fn, ms)); }
+  latency() { return this.props.latency ?? 350; }
+
+  sqName(i) { return 'abcdefgh'[i % 8] + (8 - ((i / 8) | 0)); }
+
+  legalFrom(b, i) {
+    const p = b[i]; if (!p) return [];
+    const c = p[0], t = p[1], r = (i / 8) | 0, f = i % 8, out = [];
+    const inb = (rr, ff) => rr >= 0 && rr < 8 && ff >= 0 && ff < 8;
+    const step = (rr, ff) => {
+      if (!inb(rr, ff)) return false;
+      const j = rr * 8 + ff;
+      if (b[j] && b[j][0] === c) return false;
+      out.push(j);
+      return !b[j];
+    };
+    const slide = (dr, df) => { let rr = r + dr, ff = f + df; while (step(rr, ff)) { rr += dr; ff += df; } };
+    if (t === 'p') {
+      const d = c === 'w' ? -1 : 1, start = c === 'w' ? 6 : 1;
+      if (inb(r + d, f) && !b[(r + d) * 8 + f]) {
+        out.push((r + d) * 8 + f);
+        if (r === start && !b[(r + 2 * d) * 8 + f]) out.push((r + 2 * d) * 8 + f);
+      }
+      [-1, 1].forEach(df => {
+        if (!inb(r + d, f + df)) return;
+        const j = (r + d) * 8 + f + df;
+        if (b[j] && b[j][0] !== c) out.push(j);
+      });
+    } else if (t === 'n') {
+      [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2], [-2, -1]].forEach(o => step(r + o[0], f + o[1]));
+    } else if (t === 'k') {
+      [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]].forEach(o => step(r + o[0], f + o[1]));
+    } else {
+      if (t === 'r' || t === 'q') [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(o => slide(o[0], o[1]));
+      if (t === 'b' || t === 'q') [[1, 1], [1, -1], [-1, 1], [-1, -1]].forEach(o => slide(o[0], o[1]));
+    }
+    return out;
+  }
+
+  allMoves(b, c) {
+    const out = [];
+    b.forEach((p, i) => { if (p && p[0] === c) this.legalFrom(b, i).forEach(j => out.push([i, j])); });
+    return out;
+  }
+
+  apply(from, to) {
+    const b = this.state.board.slice();
+    const p = b[from], cap = b[to];
+    b[to] = p; b[from] = null;
+    const rr = (to / 8) | 0;
+    let promo = '';
+    if (p[1] === 'p' && ((p[0] === 'w' && rr === 0) || (p[0] === 'b' && rr === 7))) { b[to] = p[0] + 'q'; promo = '=Q'; }
+    const letter = p[1] === 'p' ? '' : p[1].toUpperCase();
+    const san = letter + (cap ? (p[1] === 'p' ? 'abcdefgh'[from % 8] : '') + 'x' : '') + this.sqName(to) + promo;
+    return { b, san, cap };
+  }
+
+  tap(i) {
+    const st = this.state;
+    if (st.result || st.turn !== 'w' || st.thinking) return;
+    const p = st.board[i];
+    if (st.sel !== null && st.legal.indexOf(i) >= 0) {
+      const { b, san, cap } = this.apply(st.sel, i);
+      const kingTaken = cap && cap[1] === 'k';
+      this.setState({
+        board: b, sel: null, legal: [], last: [st.sel, i], turn: 'b',
+        moves: st.moves.concat([san]), syncing: true,
+        capW: cap ? st.capW.concat([cap[1]]) : st.capW
+      });
+      this.later(() => this.setState({ syncing: false }), this.latency());
+      if (kingTaken) { this.later(() => this.finish('W', 'Checkmate'), this.latency() + 350); return; }
+      this.setState({ thinking: true });
+      this.later(() => this.reply(), this.latency() + 950);
+      return;
+    }
+    if (p && p[0] === 'w') this.setState({ sel: i, legal: this.legalFrom(st.board, i) });
+    else this.setState({ sel: null, legal: [] });
+  }
+
+  reply() {
+    const st = this.state;
+    if (st.result) return;
+    const all = this.allMoves(st.board, 'b');
+    if (!all.length) { this.finish('D', 'No moves left'); return; }
+    const caps = all.filter(m => st.board[m[1]]);
+    const pick = caps.length && Math.random() < 0.55 ? caps[(Math.random() * caps.length) | 0] : all[(Math.random() * all.length) | 0];
+    const { b, san, cap } = this.apply(pick[0], pick[1]);
+    const kingTaken = cap && cap[1] === 'k';
+    this.setState({ board: b, last: pick, turn: 'w', thinking: false, moves: st.moves.concat([san]), capB: cap ? st.capB.concat([cap[1]]) : st.capB });
+    if (kingTaken) this.later(() => this.finish('L', 'Checkmate'), 350);
+  }
+
+  finish(res, why) {
+    const st = this.state;
+    const entry = { op: st.active.op, res, why, date: '27 Aug', detail: st.moves.length ? st.moves.slice() : ['—'] };
+    this.setState({ result: res, resultWhy: why, resignOpen: false, history: [entry].concat(st.history), thinking: false });
+  }
+
+  go(screen) {
+    const tabbed = { home: 'play', friends: 'friends', you: 'you' };
+    this.setState(s => ({
+      screen, prev: s.screen, tab: tabbed[screen] || s.tab, resignOpen: false,
+      viewFriend: screen === 'profile' ? s.viewFriend : null
+    }));
+  }
+
+  say(msg) { this.setState({ toast: msg }); this.later(() => this.setState({ toast: null }), 2200); }
+
+  challenge(name) {
+    if (this.state.active) { this.say('You already have an active game. Finish it first.'); return; }
+    const f = this.state.friends.find(x => x.name === name);
+    this.setState({
+      active: { op: name, icon: f ? f.icon : '♞' }, board: this.init(), turn: 'w',
+      sel: null, legal: [], last: null, moves: [], capW: [], capB: [], result: null, screen: 'board'
+    });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const style = this.props.pieceStyle ?? 'Solid';
+    const disc = style === 'Disc';
+    const me = st.username.trim() || 'you';
+    const rec = st.history.reduce((a, g) => { a[g.res]++; return a; }, { W: 0, L: 0, D: 0 });
+
+    const paint = (p, i, legal, sel, big) => {
+      const r = (i / 8) | 0, f = i % 8, lightSq = (r + f) % 2 === 0;
+      const lit = st.last && (i === st.last[0] || i === st.last[1]);
+      const white = p && p[0] === 'w';
+      const isLegal = legal.indexOf(i) >= 0;
+      return {
+        bg: lit ? (lightSq ? '#CFDABB' : '#68805B') : (lightSq ? '#D9DED0' : '#6E7F63'),
+        glyph: p ? this.GL[p[1]] : '',
+        pc: disc ? (white ? '#1B221C' : '#EDEEE7') : (white ? '#F9FAF5' : '#1B221C'),
+        stroke: !disc && white ? '.9px rgba(27,34,28,.6)' : '0',
+        chip: disc && p ? (white ? '#F9FAF5' : '#1B221C') : 'transparent',
+        chipW: disc ? '76%' : 'auto',
+        shadow: p ? (white ? '0 1px 2px rgba(27,34,28,.35)' : '0 1px 2px rgba(0,0,0,.28)') : 'none',
+        ring: sel === i ? 'inset 0 0 0 3px #B4C4A8' : (isLegal && p ? 'inset 0 0 0 3px rgba(27,34,28,.45)' : 'none'),
+        dot: isLegal && !p ? 'rgba(27,34,28,.3)' : 'transparent',
+        tap: () => this.tap(i)
+      };
+    };
+
+    const squares = st.board.map((p, i) => paint(p, i, st.legal, st.sel));
+    const mini = st.board.map((p, i) => {
+      const r = (i / 8) | 0, f = i % 8, lightSq = (r + f) % 2 === 0;
+      return {
+        bg: lightSq ? '#D9DED0' : '#6E7F63',
+        glyph: p ? this.GL[p[1]] : '',
+        pc: p && p[0] === 'w' ? '#F9FAF5' : '#1B221C'
+      };
+    });
+
+    const chip = res => ({
+      chip: res, chipBg: res === 'W' ? 'rgba(180,196,168,.22)' : res === 'D' ? 'rgba(237,238,231,.1)' : 'rgba(201,155,139,.18)',
+      chipFg: res === 'W' ? '#B4C4A8' : res === 'D' ? 'rgba(237,238,231,.6)' : '#C99B8B'
+    });
+
+    const plies = x => (x.detail ? Math.ceil(x.detail.length / 2) : x.moves || 0);
+    const recFor = name => st.history.reduce((a, x) => { if (x.op === name) a[x.res]++; return a; }, { W: 0, L: 0, D: 0 });
+    const history = st.history.map((g, i) => ({
+      ...chip(g.res), opponent: 'vs ' + g.op,
+      summary: (g.res === 'W' ? 'Won' : g.res === 'L' ? 'Lost' : 'Draw') + ' · ' + g.why + ' · ' + plies(g) + ' moves',
+      date: g.date, open: () => this.setState({ viewGame: i, prev: st.screen, screen: 'game' })
+    }));
+
+    const vf = st.viewFriend !== null ? st.friends[st.viewFriend] : null;
+    const vfGames = vf ? st.history.filter(g => g.op === vf.name) : [];
+    const g = st.viewGame !== null ? st.history[st.viewGame] : null;
+    const gMovesSrc = g && g.detail ? g.detail : st.moves;
+    const rows = [];
+    for (let i = 0; i < gMovesSrc.length; i += 2) rows.push({ no: (i / 2 + 1) + '.', w: gMovesSrc[i], b: gMovesSrc[i + 1] || '' });
+
+    const jumpDefs = [['Sign in', 'signin'], ['Setup', 'setup'], ['Home', 'home'], ['Board', 'board'], ['Friends', 'friends'], ['Profile', 'profile'], ['You', 'you'], ['Game', 'game'], ['Settings', 'settings']];
+
+    return {
+      kb: st.screen === 'setup' && !!st.kbFocus,
+      onNameFocus: () => this.setState({ kbFocus: true }),
+      onNameBlur: () => this.setState({ kbFocus: false }),
+      isSignin: st.screen === 'signin', isSetup: st.screen === 'setup', isHome: st.screen === 'home',
+      isBoard: st.screen === 'board', isFriends: st.screen === 'friends', isProfile: st.screen === 'profile',
+      isYou: st.screen === 'you', isGame: st.screen === 'game', isSettings: st.screen === 'settings',
+      showTabs: ['home', 'friends', 'you'].indexOf(st.screen) >= 0,
+      showCoords: !!this.props.showCoordinates,
+
+      jump: jumpDefs.map(d => ({
+        label: d[0], bg: st.screen === d[1] ? 'rgba(27,34,28,.12)' : 'transparent',
+        go: () => {
+          if (d[1] === 'profile') this.setState({ viewFriend: 0, screen: 'profile', prev: 'friends' });
+          else if (d[1] === 'game') this.setState({ viewGame: 0, screen: 'game', prev: 'you' });
+          else this.go(d[1]);
+        }
+      })),
+      tabs: [['Play', 'home'], ['Friends', 'friends'], ['You', 'you']].map(t => ({
+        label: t[0],
+        color: st.screen === t[1] ? '#EDEEE7' : 'rgba(237,238,231,.42)',
+        dot: st.screen === t[1] ? '#B4C4A8' : 'transparent',
+        go: () => this.go(t[1])
+      })),
+
+      username: st.username,
+      onUsername: e => this.setState({ username: e.target.value.replace(/\s/g, '') }),
+      nameHint: st.username.length === 0 ? 'Lowercase, 3–16 characters' : st.username.length < 3 ? 'A bit short' : st.username === 'mira.k' ? 'Taken' : 'Available',
+      nameHintColor: st.username.length >= 3 && st.username !== 'mira.k' ? '#B4C4A8' : 'rgba(237,238,231,.35)',
+      iconChoices: this.ICONS.map((glyph, i) => ({
+        glyph, bg: st.icon === i ? '#EDEEE7' : 'rgba(237,238,231,.07)',
+        fg: st.icon === i ? '#14170F' : 'rgba(237,238,231,.75)',
+        ring: st.icon === i ? '0 0 0 2px #B4C4A8' : 'none',
+        pick: () => this.setState({ icon: i })
+      })),
+      ctaBg: st.username.length >= 3 ? '#B4C4A8' : 'rgba(237,238,231,.09)',
+      ctaFg: st.username.length >= 3 ? '#14170F' : 'rgba(237,238,231,.35)',
+      signIn: () => this.go('setup'),
+      finishSetup: () => { if (st.username.length >= 3) this.go('home'); },
+
+      myName: me, myIcon: this.ICONS[st.icon],
+      myRecord: rec.W + 'W · ' + rec.L + 'L · ' + rec.D + 'D',
+      myStats: [
+        { value: rec.W, label: 'WINS', color: '#B4C4A8' },
+        { value: rec.L, label: 'LOSSES', color: '#EDEEE7' },
+        { value: rec.D, label: 'DRAWS', color: '#EDEEE7' }
+      ],
+
+      hasActive: !!st.active, noActive: !st.active,
+      opName: st.active ? st.active.op : '', opIcon: st.active ? st.active.icon : '♞',
+      turnText: st.result ? 'Game over' : st.thinking ? (st.active.op + ' is thinking…') : 'Your move',
+      turnColor: st.result ? 'rgba(237,238,231,.5)' : st.thinking ? 'rgba(237,238,231,.5)' : '#B4C4A8',
+      activeMeta: 'move ' + (Math.floor(st.moves.length / 2) + 1) + ' · untimed',
+      syncText: st.syncing ? 'SYNCING' : 'LIVE',
+      syncColor: st.syncing ? '#D8C48A' : '#B4C4A8',
+      capturedTop: st.capB.map(t => this.GL[t]).join(''),
+      capturedBottom: st.capW.map(t => this.GL[t]).join(''),
+      opDot: st.result ? 'transparent' : (st.turn === 'b' ? '#B4C4A8' : 'transparent'),
+      myDot: st.result ? 'transparent' : (st.turn === 'w' ? '#B4C4A8' : 'transparent'),
+      squares, mini,
+      openBoard: () => this.go('board'),
+      back: () => this.go(st.prev === st.screen ? 'home' : st.prev),
+      askResign: () => this.setState({ resignOpen: true }),
+      dismiss: () => this.setState({ resignOpen: false }),
+      doResign: () => this.finish('L', 'You resigned'),
+      resignOpen: st.resignOpen && !st.result,
+      resultOpen: !!st.result,
+      resultGlyph: st.result === 'W' ? '♔' : st.result === 'D' ? '♟' : '♚',
+      resultTitle: st.result === 'W' ? 'You won' : st.result === 'D' ? 'Draw' : 'You lost',
+      resultSub: (st.resultWhy || '') + ' · ' + Math.ceil(st.moves.length / 2) + ' moves recorded against ' + (st.active ? st.active.op : ''),
+      closeResult: () => this.setState({ result: null, active: null, screen: 'home', tab: 'play' }),
+      toast: st.toast, toastOpen: !!st.toast,
+
+      friends: st.friends.map((f, i) => ({
+        name: f.name, icon: f.icon, h2h: (r => r.L + '–' + r.W + '–' + r.D)(recFor(f.name)),
+        cta: st.active ? (st.active.op === f.name ? 'Playing' : 'Busy') : 'Challenge',
+        ctaBg: st.active ? 'transparent' : 'rgba(180,196,168,.16)',
+        ctaColor: st.active ? 'rgba(237,238,231,.3)' : '#B4C4A8',
+        open: () => this.setState({ viewFriend: i, prev: st.screen, screen: 'profile' }),
+        challenge: () => this.challenge(f.name)
+      })),
+      friendsCount: st.friends.length + ' FRIENDS',
+      hasRequests: st.requests.length > 0,
+      requests: st.requests.map((r, i) => ({
+        name: r.name, icon: r.icon, dir: r.incoming ? 'wants to be friends' : 'request sent',
+        acceptLabel: r.incoming ? 'Accept' : 'Pending',
+        acceptFg: r.incoming ? '#14170F' : 'rgba(237,238,231,.4)',
+        acceptBg: r.incoming ? '#B4C4A8' : 'rgba(237,238,231,.07)',
+        declineLabel: r.incoming ? 'Decline' : 'Cancel',
+        accept: () => {
+          if (!r.incoming) return;
+          this.setState(s => ({
+            requests: s.requests.filter((_, j) => j !== i),
+            friends: s.friends.concat([{ name: r.name, icon: r.icon, w: 0, l: 0, d: 0, since: 'Friends since today' }])
+          }));
+          this.say(r.name + ' is now a friend.');
+        },
+        decline: () => { this.setState(s => ({ requests: s.requests.filter((_, j) => j !== i) })); }
+      })),
+      addValue: st.addValue,
+      onAdd: e => this.setState({ addValue: e.target.value.replace(/\s/g, '') }),
+      sendRequest: () => {
+        const v = st.addValue.trim(); if (!v) return;
+        this.setState(s => ({ requests: s.requests.concat([{ name: v, icon: '●', incoming: false }]), addValue: '' }));
+        this.say('Request sent to ' + v + '.');
+      },
+
+      pfName: vf ? vf.name : '', pfIcon: vf ? vf.icon : '♞', pfSince: vf ? vf.since : '',
+      pfStats: vf ? (r => [
+        { value: r.W + r.L + r.D, label: 'GAMES', color: '#EDEEE7' },
+        { value: r.L, label: 'THEIR WINS', color: '#EDEEE7' },
+        { value: r.W, label: 'YOUR WINS', color: '#B4C4A8' }
+      ])(recFor(vf.name)) : [],
+      pfH2H: vf ? (r => r.W + ' – ' + r.L + ' – ' + r.D + (r.W > r.L ? ' in your favour' : r.W < r.L ? ' in their favour' : ' dead even'))(recFor(vf.name)) : '',
+      pfBarW: vf ? (r => (r.W + r.L + r.D ? Math.round(100 * r.W / (r.W + r.L + r.D)) : 0) + '%')(recFor(vf.name)) : '0%',
+      pfGames: vfGames.map(x => ({
+        ...chip(x.res), summary: (x.res === 'W' ? 'Won' : x.res === 'L' ? 'Lost' : 'Draw') + ' · ' + x.why, date: x.date,
+        open: () => this.setState({ viewGame: st.history.indexOf(x), prev: 'profile', screen: 'game' })
+      })),
+      pfCta: st.active ? 'You have an active game' : 'Challenge ' + (vf ? vf.name : ''),
+      pfCtaBg: st.active ? 'rgba(237,238,231,.08)' : '#B4C4A8',
+      pfCtaFg: st.active ? 'rgba(237,238,231,.35)' : '#14170F',
+      pfChallenge: () => { if (vf) this.challenge(vf.name); },
+      removeFriend: () => this.say('Removed. They can send a new request.'),
+
+      history,
+      gdTitle: g ? ((g.res === 'W' ? 'Won' : g.res === 'L' ? 'Lost' : 'Draw') + ' vs ' + g.op) : 'Game',
+      gdMeta: g ? (g.why + ' · ' + plies(g) + ' moves · ' + g.date + ' 2026') : '',
+      gdMoves: rows.length ? rows : [{ no: '1.', w: 'e4', b: 'e5' }, { no: '2.', w: 'Nf3', b: 'Nc6' }, { no: '3.', w: 'Bb5', b: 'a6' }],
+      openSettings: () => this.go('settings'),
+      signOut: () => this.setState({ screen: 'signin', username: '', active: { op: 'mira.k', icon: '♞' }, board: this.init(), moves: [], capW: [], capB: [], result: null, sel: null, legal: [], last: null, turn: 'w' })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
