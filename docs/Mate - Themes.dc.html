@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>body{margin:0;background:#f0eee9;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#2a78d6}a:hover{color:#1b5aa8}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 'Instrument Sans',system-ui,sans-serif;color:#1a1a1a}.dv-sub{margin:0 0 26px;font:400 12px/1.5 'Instrument Sans',system-ui,sans-serif;color:rgba(0,0,0,.5);max-width:62ch}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Instrument Sans',system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;border:1px solid rgba(0,0,0,.1);border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:26px 0 0;font:12px/1.6 'Instrument Sans',system-ui,sans-serif;color:rgba(0,0,0,.5)}.sw{display:flex;gap:5px}.sw i{width:16px;height:16px;border-radius:4px;display:block;border:1px solid rgba(0,0,0,.12)}.pc{font-family:serif;font-size:27px;line-height:1}.rk{display:grid;grid-template-columns:repeat(8,1fr);align-items:center;justify-items:center}.cw{width:76%;aspect-ratio:1;border-radius:50%;background:#F9FAF5;color:#1B221C;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.18)}.cb{width:76%;aspect-ratio:1;border-radius:50%;background:#1B221C;color:#EDEEE7;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.18)}</style></helmet>
+
+<section class="dv-turn" id="t4">
+<div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">Dark counterpart of <a class="dv-oid" href="#3a">3a</a></span></div>
+<p class="dv-sub">Identical layout, identical board squares (#6E7F63 / #D9DED0) and identical pieces (ink + bone). Only the ground, text, and status accent flip. <a class="dv-oid" href="#4a">4a</a> is a deep green-black; <a class="dv-oid" href="#4b">4b</a> lifts to charcoal and floats the board on a shadow so the light squares don't feel like a hole punched in the screen.</p>
+<div class="dv-opts">
+
+<div class="dv-opt" id="4a">
+<div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>Deep green-black, flat</div>
+<div class="sw"><i style="background:#14170F"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#A3B597"></i><i style="background:#EDEEE7"></i></div>
+<div class="dv-card" style="width:336px;height:712px;background:#14170F;padding:20px 20px 26px;display:flex;flex-direction:column;border-color:rgba(255,255,255,.09)">
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#EDEEE7;color:#14170F;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#EDEEE7">mira.k</span>
+  </div>
+  <div style="flex:1;display:grid;place-items:center">
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#A3B597;flex:1"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#A3B597;margin-right:7px;vertical-align:1px"></span>Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.62);background:rgba(237,238,231,.09);border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="4b">
+<div class="dv-olabel"><a class="dv-oid" href="#4b">4b</a>Charcoal, board floats</div>
+<div class="sw"><i style="background:#1C201A"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#B4C4A8"></i><i style="background:#EDEEE7"></i></div>
+<div class="dv-card" style="width:336px;height:712px;background:#1C201A;padding:20px 20px 26px;display:flex;flex-direction:column;border-color:rgba(255,255,255,.09)">
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:30px;height:30px;border-radius:50%;background:rgba(237,238,231,.1);color:#EDEEE7;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#EDEEE7">mira.k</span>
+  </div>
+  <div style="flex:1;display:grid;place-items:center">
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55)">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#B4C4A8;flex:1"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#B4C4A8;margin-right:7px;vertical-align:1px"></span>Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(237,238,231,.62);background:rgba(237,238,231,.09);border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "go with <a class="dv-oid" href="#4b">4b</a>, draft all eight screens" · "make <a class="dv-oid" href="#4a">4a</a>'s board squares a shade darker for night" · "show <a class="dv-oid" href="#3a">3a</a> and <a class="dv-oid" href="#4b">4b</a> as one app with a light/dark switch"</p>
+</section>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname"><a class="dv-oid" href="#2a">2a</a> styling, <a class="dv-oid" href="#2b">2b</a> coloring</span></div>
+<p class="dv-sub">Kept <a class="dv-oid" href="#2a">2a</a> exactly — sans-serif chrome, 20px rounded board, pill buttons, two-tone solid pieces. Swapped in <a class="dv-oid" href="#2b">2b</a>'s palette: warmer bone ground (#F4F5EF), ink avatar chip, and deep green (#3F5138) as the accent instead of ochre. <a class="dv-oid" href="#3b">3b</a> is the same thing with the accent carrying the avatar too, if you want the green to register more.</p>
+<div class="dv-opts">
+
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Ink avatar, green status — trimmed chrome, board centered</div>
+<div class="sw"><i style="background:#F4F5EF"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#3F5138"></i><i style="background:#1B221C"></i></div>
+<div class="dv-card" style="width:336px;height:712px;background:#F4F5EF;padding:20px 20px 26px;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#1B221C;color:#F4F5EF;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#1B221C">mira.k</span>
+  </div>
+  <div style="flex:1;display:grid;place-items:center">
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#3F5138;flex:1"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3F5138;margin-right:7px;vertical-align:1px"></span>Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E6E9DE;border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="3b">
+<div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Green avatar, more accent</div>
+<div class="sw"><i style="background:#F4F5EF"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#3F5138"></i><i style="background:#1B221C"></i></div>
+<div class="dv-card" style="width:336px;background:#F4F5EF;padding:18px 20px 16px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#3F5138;color:#F4F5EF;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#1B221C">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(27,34,28,.45)">3–1–2 vs you</span>
+    </div>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:#3F5138;letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#F4F5EF;background:#3F5138;border-radius:20px;padding:7px 14px">Your move</span>
+    <span style="flex:1"></span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E6E9DE;border-radius:20px;padding:6px 12px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E6E9DE;border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next"><a class="dv-oid" href="#3a">3a</a> updated: no draw button, no head-to-head record, no move counter, board centered on a full screen height. Try next: "lock in <a class="dv-oid" href="#3a">3a</a> and draft all eight screens" · "<a class="dv-oid" href="#3a">3a</a> with <a class="dv-oid" href="#2f">2f</a> disc pieces" · "give me a dark counterpart to <a class="dv-oid" href="#3a">3a</a>"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Riffs on <a class="dv-oid" href="#1d">1d</a> + <a class="dv-oid" href="#1e">1e</a>, with solid pieces</span></div>
+<p class="dv-sub">Yes — piece design is its own axis, independent of theme. Turn 1 used Unicode outline glyphs for White, which read as hollow. Everything here uses <strong>solid glyphs for both sides</strong>, White in bone with a hairline ink stroke. Top row: four theme refinements. Bottom row: three piece treatments on one board, so you can pick pieces separately from palette.</p>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Moss, solid pieces — <a class="dv-oid" href="#1d">1d</a> corrected</div>
+<div class="sw"><i style="background:#EDEEE7"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#A8763E"></i><i style="background:#1B221C"></i></div>
+<div class="dv-card" style="width:336px;background:#EDEEE7;padding:18px 20px 16px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#DDE2D6;color:#6E7F63;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#1B221C">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(27,34,28,.45)">3–1–2 vs you</span>
+    </div>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(27,34,28,.45);letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#1B221C;flex:1">Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E1E5DA;border-radius:20px;padding:6px 12px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E1E5DA;border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Moss + notation rail — <a class="dv-oid" href="#1d">1d</a> board, <a class="dv-oid" href="#1e">1e</a> chrome</div>
+<div class="sw"><i style="background:#EDEEE7"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#3F5138"></i><i style="background:#1B221C"></i></div>
+<div class="dv-card" style="width:336px;background:#F4F5EF;padding:18px 20px 14px;font-family:'JetBrains Mono',monospace">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(27,34,28,.14)">
+    <div style="width:28px;height:28px;border-radius:6px;background:#1B221C;color:#EDEEE7;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 12px/1.1 'JetBrains Mono',monospace;color:#1B221C;letter-spacing:.02em">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(27,34,28,.45)">W3 L1 D2 · head-to-head</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#3F5138">BLACK</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:4px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5;box-shadow:inset 0 0 0 2px rgba(27,34,28,.35);width:100%;height:100%;display:grid;place-items:center">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.9px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <div style="display:flex;gap:14px;margin-top:12px;font:400 10px/1.6 'JetBrains Mono',monospace;color:rgba(27,34,28,.55)">
+    <span style="flex:1">10. Nf3 Nc6<br>11. Bb5 a6<br>12. e4 <span style="color:#1B221C;background:rgba(110,127,99,.28);padding:0 3px">e5</span></span>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+      <span style="font:500 10px 'JetBrains Mono',monospace;color:#3F5138;letter-spacing:.04em">YOUR MOVE</span>
+      <span style="display:flex;gap:6px"><span style="border:1px solid rgba(27,34,28,.2);padding:4px 8px">DRAW</span><span style="border:1px solid rgba(27,34,28,.2);padding:4px 8px">RESIGN</span></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="2c">
+<div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Blueprint, coordinates outside — <a class="dv-oid" href="#1e">1e</a> corrected</div>
+<div class="sw"><i style="background:#E7EAEE"></i><i style="background:#DCE3EA"></i><i style="background:#7E93A8"></i><i style="background:#2F5FD0"></i><i style="background:#16202B"></i></div>
+<div class="dv-card" style="width:336px;background:#E7EAEE;padding:18px 16px 14px;font-family:'JetBrains Mono',monospace">
+  <div style="display:flex;align-items:center;gap:10px;margin:0 4px 14px;padding-bottom:12px;border-bottom:1px solid rgba(22,32,43,.15)">
+    <div style="width:28px;height:28px;border:1px solid rgba(22,32,43,.3);color:#16202B;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 12px/1.1 'JetBrains Mono',monospace;color:#16202B;letter-spacing:.02em">MIRA.K</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(22,32,43,.5)">W3 L1 D2</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#2F5FD0">12. e4 e5</span>
+  </div>
+  <div style="display:flex;gap:5px">
+    <div style="display:grid;grid-template-rows:repeat(8,1fr);align-items:center;font:400 8px 'JetBrains Mono',monospace;color:rgba(22,32,43,.45);height:272px">
+      <span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
+    </div>
+    <div>
+      <div style="position:relative;width:272px;height:272px;background-image:conic-gradient(#7E93A8 25%,#DCE3EA 0 50%,#7E93A8 0 75%,#DCE3EA 0);background-size:25% 25%;outline:1px solid rgba(22,32,43,.3);overflow:hidden">
+        <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#16202B;font-size:25px" class="pc">
+          <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+          <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+          <div class="rk"></div>
+          <div class="rk"><span style="grid-column:5">♟</span></div>
+          <div class="rk" style="color:#FBFCFD;-webkit-text-stroke:.9px rgba(22,32,43,.65)"><span style="grid-column:5">♟</span></div>
+          <div class="rk"></div>
+          <div class="rk" style="color:#FBFCFD;-webkit-text-stroke:.9px rgba(22,32,43,.65)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+          <div class="rk" style="color:#FBFCFD;-webkit-text-stroke:.9px rgba(22,32,43,.65)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(8,1fr);justify-items:center;font:400 8px 'JetBrains Mono',monospace;color:rgba(22,32,43,.45);margin-top:4px">
+        <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin:12px 4px 0">
+    <span style="font:500 11px/1 'JetBrains Mono',monospace;color:#2F5FD0;flex:1;letter-spacing:.04em">YOUR MOVE ▸</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(22,32,43,.55);border:1px solid rgba(22,32,43,.2);padding:5px 9px">DRAW</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(22,32,43,.55);border:1px solid rgba(22,32,43,.2);padding:5px 9px">RESIGN</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="2d">
+<div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Blueprint at night — dark <a class="dv-oid" href="#1e">1e</a></div>
+<div class="sw"><i style="background:#0F151B"></i><i style="background:#1D262F"></i><i style="background:#38485A"></i><i style="background:#6E9BE8"></i><i style="background:#DEE6EF"></i></div>
+<div class="dv-card" style="width:336px;background:#0F151B;padding:18px 20px 14px;font-family:'JetBrains Mono',monospace;border-color:rgba(255,255,255,.08)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(222,230,239,.14)">
+    <div style="width:28px;height:28px;border:1px solid rgba(222,230,239,.25);color:#DEE6EF;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 12px/1.1 'JetBrains Mono',monospace;color:#DEE6EF;letter-spacing:.02em">MIRA.K</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(222,230,239,.45)">W3 L1 D2</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#6E9BE8">12. e4 e5</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#1D262F 25%,#38485A 0 50%,#1D262F 0 75%,#38485A 0);background-size:25% 25%;outline:1px solid rgba(110,155,232,.25);overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#0B1016" class="pc">
+      <div class="rk" style="color:#080D12"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk" style="color:#080D12"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#080D12"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#E9EFF6"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#E9EFF6"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#E9EFF6"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:14px">
+    <span style="font:500 11px/1 'JetBrains Mono',monospace;color:#6E9BE8;flex:1;letter-spacing:.04em">YOUR MOVE ▸</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(222,230,239,.6);border:1px solid rgba(222,230,239,.2);padding:5px 9px">DRAW</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(222,230,239,.6);border:1px solid rgba(222,230,239,.2);padding:5px 9px">RESIGN</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="2e">
+<div class="dv-olabel"><a class="dv-oid" href="#2e">2e</a>Pieces: two-tone solid</div>
+<div class="dv-card" style="width:232px;background:#EDEEE7;padding:16px">
+  <div style="position:relative;width:200px;height:200px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:8px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C;font-family:serif;font-size:18px;line-height:1">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.7px rgba(27,34,28,.6)"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.7px rgba(27,34,28,.6)"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#F9FAF5;-webkit-text-stroke:.7px rgba(27,34,28,.6)"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <p style="margin:12px 2px 0;font:400 10px/1.5 'JetBrains Mono',monospace;color:rgba(27,34,28,.5)">Bone fill + hairline ink stroke. Quietest; reads at a glance on both square tones.</p>
+</div>
+</div>
+
+<div class="dv-opt" id="2f">
+<div class="dv-olabel"><a class="dv-oid" href="#2f">2f</a>Pieces: on discs</div>
+<div class="dv-card" style="width:232px;background:#EDEEE7;padding:16px">
+  <div style="position:relative;width:200px;height:200px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:8px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);font-family:serif;font-size:15px;line-height:1">
+      <div class="rk"><span class="cb">♜</span><span class="cb">♞</span><span class="cb">♝</span><span class="cb">♛</span><span class="cb">♚</span><span class="cb">♝</span><span class="cb">♞</span><span class="cb">♜</span></div>
+      <div class="rk"><span class="cb">♟</span><span class="cb">♟</span><span class="cb">♟</span><span class="cb">♟</span><span></span><span class="cb">♟</span><span class="cb">♟</span><span class="cb">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span class="cb" style="grid-column:5">♟</span></div>
+      <div class="rk"><span class="cw" style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span class="cw">♟</span><span class="cw">♟</span><span class="cw">♟</span><span class="cw">♟</span><span></span><span class="cw">♟</span><span class="cw">♟</span><span class="cw">♟</span></div>
+      <div class="rk"><span class="cw">♜</span><span class="cw">♞</span><span class="cw">♝</span><span class="cw">♛</span><span class="cw">♚</span><span class="cw">♝</span><span class="cw">♞</span><span class="cw">♜</span></div>
+    </div>
+  </div>
+  <p style="margin:12px 2px 0;font:400 10px/1.5 'JetBrains Mono',monospace;color:rgba(27,34,28,.5)">Each piece on a chip. Maximum legibility at thumb size; slightly more "app", less "board".</p>
+</div>
+</div>
+
+<div class="dv-opt" id="2g">
+<div class="dv-olabel"><a class="dv-oid" href="#2g">2g</a>Pieces: heavy silhouette</div>
+<div class="dv-card" style="width:232px;background:#EDEEE7;padding:16px">
+  <div style="position:relative;width:200px;height:200px;background-image:conic-gradient(#5B6B51 25%,#E2E6DA 0 50%,#5B6B51 0 75%,#E2E6DA 0);background-size:25% 25%;border-radius:8px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#12180F;font-family:serif;font-size:23px;line-height:1">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk" style="color:#FFFFFF"><span style="grid-column:5">♟</span></div>
+      <div class="rk"></div>
+      <div class="rk" style="color:#FFFFFF"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk" style="color:#FFFFFF"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+    </div>
+  </div>
+  <p style="margin:12px 2px 0;font:400 10px/1.5 'JetBrains Mono',monospace;color:rgba(27,34,28,.5)">Oversized, no stroke, wider square contrast. Boldest; crowds the square a little.</p>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "<a class="dv-oid" href="#2b">2b</a> with <a class="dv-oid" href="#2f">2f</a> pieces — draft all eight screens" · "<a class="dv-oid" href="#2c">2c</a> but warmer greys" · "show <a class="dv-oid" href="#2a">2a</a> and <a class="dv-oid" href="#2d">2d</a> as a light/dark pair"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Theme directions — game screen, one fixed board style per theme</span></div>
+<p class="dv-sub">Same screen six ways: opponent bar, board, move status. Outline pieces are White, solid are Black — one monochrome piece set, so the board reads instantly and never needs a theme picker. Pick a direction (or mix: "board from <a class="dv-oid" href="#1c">1c</a>, chrome from <a class="dv-oid" href="#1b">1b</a>") and I'll draft the full screen set.</p>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Paper &amp; Ink — warm, quiet, editorial</div>
+<div class="sw"><i style="background:#F5F2EC"></i><i style="background:#E8E2D5"></i><i style="background:#B8AE9B"></i><i style="background:#7A6A4F"></i><i style="background:#14140F"></i></div>
+<div class="dv-card" style="width:336px;background:#F5F2EC;padding:18px 20px 16px;font-family:'Newsreader',Georgia,serif">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#E1DACB;color:#7A6A4F;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:1px;flex:1">
+      <span style="font:500 15px/1.1 'Newsreader',serif;color:#14140F">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(20,20,15,.45);letter-spacing:.04em">3–1–2 vs you</span>
+    </div>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(20,20,15,.45);letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#B8AE9B 25%,#E8E2D5 0 50%,#B8AE9B 0 75%,#E8E2D5 0);background-size:25% 25%;border-radius:3px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#14140F" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:400 13px/1 'Newsreader',serif;color:#14140F;flex:1"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#7A6A4F;margin-right:7px;vertical-align:1px"></span>Your move</span>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(20,20,15,.5);border:1px solid rgba(20,20,15,.18);border-radius:20px;padding:5px 11px">draw</span>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:rgba(20,20,15,.5);border:1px solid rgba(20,20,15,.18);border-radius:20px;padding:5px 11px">resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Graphite — dark, low-glare, board floats</div>
+<div class="sw"><i style="background:#101214"></i><i style="background:#24292E"></i><i style="background:#454B51"></i><i style="background:#8FB8C9"></i><i style="background:#E8E9EA"></i></div>
+<div class="dv-card" style="width:336px;background:#101214;padding:18px 20px 16px;border-color:rgba(255,255,255,.08)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:9px;background:#1E2328;color:#8FB8C9;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#E8E9EA">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(232,233,234,.4)">3–1–2 vs you</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#8FB8C9;background:rgba(143,184,201,.12);border-radius:6px;padding:5px 8px">LIVE</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#24292E 25%,#454B51 0 50%,#24292E 0 75%,#454B51 0);background-size:25% 25%;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.5)">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#E8E9EA" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#8FB8C9;flex:1">Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(232,233,234,.55);background:#1B1F23;border-radius:8px;padding:6px 11px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(232,233,234,.55);background:#1B1F23;border-radius:8px;padding:6px 11px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Sand &amp; Basalt — high-contrast board, one hot accent</div>
+<div class="sw"><i style="background:#EFE6DA"></i><i style="background:#E3D3BC"></i><i style="background:#8A7357"></i><i style="background:#C05D3C"></i><i style="background:#241F1B"></i></div>
+<div class="dv-card" style="width:336px;background:#EFE6DA;padding:18px 20px 16px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#241F1B;color:#EFE6DA;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:600 14px/1.1 'Instrument Sans',sans-serif;color:#241F1B;letter-spacing:-.01em">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(36,31,27,.5)">3–1–2 vs you</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#C05D3C;letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#8A7357 25%,#E3D3BC 0 50%,#8A7357 0 75%,#E3D3BC 0);background-size:25% 25%;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#241F1B" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5;box-shadow:inset 0 0 0 2px #C05D3C;width:100%;height:100%;display:grid;place-items:center">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:600 13px/1 'Instrument Sans',sans-serif;color:#241F1B;flex:1">Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:#241F1B;border:1px solid rgba(36,31,27,.2);border-radius:4px;padding:6px 11px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:#EFE6DA;background:#C05D3C;border-radius:4px;padding:6px 11px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Moss — muted green board, bone ground</div>
+<div class="sw"><i style="background:#EDEEE7"></i><i style="background:#D9DED0"></i><i style="background:#6E7F63"></i><i style="background:#A8763E"></i><i style="background:#1B221C"></i></div>
+<div class="dv-card" style="width:336px;background:#EDEEE7;padding:18px 20px 16px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#DDE2D6;color:#6E7F63;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 14px/1.1 'Instrument Sans',sans-serif;color:#1B221C">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(27,34,28,.45)">3–1–2 vs you</span>
+    </div>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(27,34,28,.45);letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#6E7F63 25%,#D9DED0 0 50%,#6E7F63 0 75%,#D9DED0 0);background-size:25% 25%;border-radius:20px;overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#1B221C" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:500 13px/1 'Instrument Sans',sans-serif;color:#1B221C;flex:1">Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E1E5DA;border-radius:20px;padding:6px 12px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(27,34,28,.6);background:#E1E5DA;border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1e">
+<div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>Blueprint — mono type, thin rules, notation-forward</div>
+<div class="sw"><i style="background:#E7EAEE"></i><i style="background:#DCE3EA"></i><i style="background:#7E93A8"></i><i style="background:#2F5FD0"></i><i style="background:#16202B"></i></div>
+<div class="dv-card" style="width:336px;background:#E7EAEE;padding:18px 20px 16px;font-family:'JetBrains Mono',monospace">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(22,32,43,.15)">
+    <div style="width:28px;height:28px;border:1px solid rgba(22,32,43,.3);color:#16202B;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:500 12px/1.1 'JetBrains Mono',monospace;color:#16202B;letter-spacing:.02em">MIRA.K</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(22,32,43,.5)">W3 L1 D2</span>
+    </div>
+    <span style="font:500 10px 'JetBrains Mono',monospace;color:#2F5FD0">12. e4 e5</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#7E93A8 25%,#DCE3EA 0 50%,#7E93A8 0 75%,#DCE3EA 0);background-size:25% 25%;outline:1px solid rgba(22,32,43,.25);overflow:hidden">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#16202B" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:14px">
+    <span style="font:500 11px/1 'JetBrains Mono',monospace;color:#2F5FD0;flex:1;letter-spacing:.04em">YOUR MOVE ▸</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(22,32,43,.55);border:1px solid rgba(22,32,43,.2);padding:5px 9px">DRAW</span>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(22,32,43,.55);border:1px solid rgba(22,32,43,.2);padding:5px 9px">RESIGN</span>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1f">
+<div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>Nocturne — dim plum dark mode, soft rose accent</div>
+<div class="sw"><i style="background:#14121A"></i><i style="background:#2A2536"></i><i style="background:#4A4359"></i><i style="background:#D8A0B0"></i><i style="background:#ECE7F2"></i></div>
+<div class="dv-card" style="width:336px;background:#14121A;padding:18px 20px 16px;border-color:rgba(255,255,255,.08)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <div style="width:30px;height:30px;border-radius:50%;background:#241F2E;color:#D8A0B0;display:grid;place-items:center;font:400 15px serif">♞</div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+      <span style="font:400 15px/1.1 'Newsreader',serif;color:#ECE7F2">mira.k</span>
+      <span style="font:400 10px/1.1 'JetBrains Mono',monospace;color:rgba(236,231,242,.4)">3–1–2 vs you</span>
+    </div>
+    <span style="font:400 10px 'JetBrains Mono',monospace;color:rgba(236,231,242,.4);letter-spacing:.06em">MOVE 12</span>
+  </div>
+  <div style="position:relative;width:296px;height:296px;background-image:conic-gradient(#2A2536 25%,#4A4359 0 50%,#2A2536 0 75%,#4A4359 0);background-size:25% 25%;border-radius:4px;overflow:hidden;box-shadow:0 0 0 1px rgba(216,160,176,.18)">
+    <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(8,1fr);color:#ECE7F2" class="pc">
+      <div class="rk"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
+      <div class="rk"><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span></span><span>♟</span><span>♟</span><span>♟</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span style="grid-column:5">♟</span></div>
+      <div class="rk"><span style="grid-column:5">♙</span></div>
+      <div class="rk"></div>
+      <div class="rk"><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span></span><span>♙</span><span>♙</span><span>♙</span></div>
+      <div class="rk"><span>♖</span><span>♘</span><span>♗</span><span>♕</span><span>♔</span><span>♗</span><span>♘</span><span>♖</span></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+    <span style="font:400 14px/1 'Newsreader',serif;color:#D8A0B0;flex:1;font-style:italic">Your move</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(236,231,242,.55);border:1px solid rgba(236,231,242,.18);border-radius:20px;padding:6px 12px">Draw</span>
+    <span style="font:400 11px 'Instrument Sans',sans-serif;color:rgba(236,231,242,.55);border:1px solid rgba(236,231,242,.18);border-radius:20px;padding:6px 12px">Resign</span>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "go with <a class="dv-oid" href="#1b">1b</a>, draft all eight screens" · "<a class="dv-oid" href="#1a">1a</a> but darker board squares" · "show <a class="dv-oid" href="#1e">1e</a> and <a class="dv-oid" href="#1c">1c</a> as light/dark pairs"</p>
+</section>
+
+</x-dc>
+</body>
+</html>
