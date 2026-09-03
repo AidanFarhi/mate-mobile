@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mate/app/routing/debug_auth_bar.dart';
 
 /// Stand-in for a screen that has not been built yet.
 ///
@@ -20,22 +23,40 @@ class PlaceholderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final bool canPop = GoRouter.of(context).canPop();
+
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(title, style: theme.textTheme.titleLarge),
-              const SizedBox(height: 8),
-              Text(
-                'Arrives in $issue',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
+        child: Column(
+          children: <Widget>[
+            if (canPop)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () => context.pop(),
+                  child: const Text('‹ Back'),
                 ),
               ),
-            ],
-          ),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(title, style: theme.textTheme.titleLarge),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Arrives in $issue',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // Compiled out of release builds entirely.
+            if (kDebugMode) const DebugAuthBar(),
+          ],
         ),
       ),
     );
