@@ -2,7 +2,7 @@
 
 Play chess with your friends. Flutter client, targeting iOS first.
 
-See [docs/design/software_design.md](docs/design/software_design.md) for the product and
+See [docs/software_design.md](docs/design/software_design.md) for the product and
 architecture overview.
 
 ## Prerequisites
@@ -79,7 +79,10 @@ lib/
   defines no light palette.
 
 See [docs/adr/0001-state-management-and-routing.md](docs/adr/0001-state-management-and-routing.md)
-for the reasoning and the full route table.
+for the reasoning and the full route table, and
+[docs/adr/0002-game-kinds-and-abandonment.md](docs/adr/0002-game-kinds-and-abandonment.md)
+for the game-kind model, the two-slot active-game shape, and the stalled-game
+rule.
 
 Android is not generated: V1 is iOS only. Keep platform-specific code minimal so
 Android can be added later.
