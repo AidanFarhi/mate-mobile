@@ -46,6 +46,10 @@ class DebugAuthBar extends ConsumerWidget {
             runSpacing: 6,
             children: <Widget>[
               _Chip(
+                label: 'gallery',
+                onTap: () => context.push(RoutePaths.gallery),
+              ),
+              _Chip(
                 label: 'signedOut',
                 onTap: auth.signOut,
                 selected: status == AuthStatus.signedOut,

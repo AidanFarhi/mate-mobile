@@ -27,6 +27,12 @@ class RoutePaths {
   static const String game = '/game/:id';
   static const String settings = '/settings';
 
+  /// The design-system gallery (#3). Debug builds only -- `app_router.dart`
+  /// does not register it in release, and [resolveAuthRedirect] lets it through
+  /// in any auth state so components can be inspected before there is a
+  /// session to sign into.
+  static const String gallery = '/gallery';
+
   /// Screens reachable without a complete, authenticated profile. Used by the
   /// redirect to decide when a signed-in user is somewhere they should not be.
   static const Set<String> preAuth = <String>{splash, signIn, profileSetup};
