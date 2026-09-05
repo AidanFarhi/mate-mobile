@@ -170,8 +170,13 @@ Safe-area top inset ≈ 59px, bottom home-indicator inset ≈ 34px.
   `rgba(237,238,231,.12)`.
 - **Match history:** label, then rows — 26px result chip (radius 8; W:
   `rgba(180,196,168,.22)`/`#B4C4A8`, L: `rgba(201,155,139,.18)`/`#C99B8B`, D:
-  `rgba(237,238,231,.1)`/`rgba(237,238,231,.6)`), summary "Won · Checkmate" 13px, date
+  `rgba(237,238,231,.1)`/`text-secondary`), summary "Won · Checkmate" 13px, date
   10px mono. Row taps into Game Detail.
+  - A **fourth state, unfinished** (`–`), covers a game ended under the
+    stalled-game rule (#27). It is the only chip in the set with no fill:
+    transparent background, 1px `rgba(237,238,231,.14)` border, `text-tertiary`
+    glyph. An abandoned game is the *absence* of an outcome, not a draw, so it
+    must not read as one.
 - **Footer:** primary CTA "Challenge <name>" 48px radius 13 `#B4C4A8`/`#14170F`; when the
   user has an active game it reads "You have an active game", bg `rgba(237,238,231,.08)`,
   text `rgba(237,238,231,.35)`, disabled. Trailing "Remove" text link
@@ -307,6 +312,12 @@ completed games).
 | piece-white | `#F9FAF5` | white pieces (0.9px `rgba(27,34,28,.6)` outline) |
 | scrim | `rgba(8,10,7,.66)` / `.72` | sheet / modal |
 
+The token table is the normative list. Where a per-screen note above quotes an
+alpha that is not in it but falls inside an existing tier — the draw chip's
+`.6` and the inactive tab label's `.42`, both within `text-secondary` — the
+token wins. Implementation follows the table so that one dark theme does not
+drift into several near-identical ones.
+
 **Typography** — Instrument Sans (UI) and JetBrains Mono (meta, codes, notation).
 Substitute the closest faces available in the app if these aren't licensed; keep the
 sans/mono split.
@@ -343,11 +354,17 @@ Nothing licensed or proprietary is used. To be produced for V1:
 
 - **Piece set** — 12 SVGs (6 pieces × 2 colors), two-tone silhouette style. The prototype's
   Unicode glyphs are placeholders. Do not copy another chess product's artwork.
-- **Profile icons** — a fixed set of ~8 designed icons; the prototype uses
-  ♞ ♜ ♝ ♛ ♚ ♟ ◆ ● as stand-ins.
+- **Profile icons** — a fixed set of 8 designed icons; the prototype uses
+  ♞ ♜ ♝ ♛ ♚ ♟ ◆ ● as stand-ins, and the client still ships those stand-ins.
+  They sit behind an id indirection (`AppProfileIcons.glyphs`, indexed by the
+  integer stored on the account), so the real artwork replaces one table without
+  migrating data or touching a call site. **Icon order is part of the
+  contract** — an existing account is stored as an index into this list.
 - **App icon / wordmark** — the overlapping two-knight lockup on Sign In is a starting
   point, not a final mark.
-- Fonts: Instrument Sans + JetBrains Mono (both open-licensed) or the app's own equivalents.
+- Fonts: Instrument Sans + JetBrains Mono (both open-licensed) or the app's own
+  equivalents. **Done** — both are bundled as variable fonts under the OFL in
+  `assets/fonts/`, with their licenses registered into `showLicensePage`.
 
 ## Files
 

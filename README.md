@@ -64,11 +64,17 @@ open issue to merged code, plus the house style those checks assume.
 ```
 lib/
   main.dart
-  app/          # app widget, router, theme wiring
+  app/
+    routing/    # router, route table, auth redirect
+    theme/      # design tokens: palette, typography, spacing, board
   core/         # config, errors, result types, extensions
   data/         # api client, models, repositories
   features/     # auth, friends, game, profile, settings
-  ui/           # shared widgets
+  ui/
+    components/ # shared widgets
+    gallery/    # debug-only component gallery
+assets/
+  fonts/        # Instrument Sans + JetBrains Mono, both OFL
 ```
 
 ## Architecture
@@ -79,13 +85,25 @@ lib/
   `ShellRoute` for the three tab destinations and everything else pushed over
   it.
 - **Theme:** dark only. `docs/design/ui_design.md` specifies a single dark theme and
-  defines no light palette.
+  defines no light palette. Tokens live in `lib/app/theme/` and reach screens as
+  three `ThemeExtension`s — `AppPalette`, `AppTypography`, `BoardPalette`. No
+  screen defines its own colors; a test fails the build on a color literal
+  outside `lib/app/theme/`.
+
+### Component gallery
+
+Debug builds carry a gallery of every shared component and token at `/gallery`,
+with a control for previewing the page at up to 200% text scale. Reach it from
+the debug bar at the bottom of any placeholder screen. It is not registered in
+release builds.
 
 See [docs/adr/0001-state-management-and-routing.md](docs/adr/0001-state-management-and-routing.md)
 for the reasoning and the full route table, and
 [docs/adr/0002-game-kinds-and-abandonment.md](docs/adr/0002-game-kinds-and-abandonment.md)
 for the game-kind model, the two-slot active-game shape, and the stalled-game
-rule.
+rule, and
+[docs/adr/0003-design-tokens-and-theme-extensions.md](docs/adr/0003-design-tokens-and-theme-extensions.md)
+for how design tokens are structured and enforced.
 
 Android is not generated: V1 is iOS only. Keep platform-specific code minimal so
 Android can be added later.
