@@ -56,6 +56,9 @@ flutter test
 
 `dart format .` fixes formatting in place.
 
+See [docs/contributing.md](docs/contributing.md) for how a feature goes from an
+open issue to merged code, plus the house style those checks assume.
+
 ## Project layout
 
 ```
