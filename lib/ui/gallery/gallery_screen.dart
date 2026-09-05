@@ -444,7 +444,7 @@ class _Swatches extends StatelessWidget {
       children: <Widget>[
         for (final (String name, Color color) in entries)
           SizedBox(
-            width: 96,
+            width: 116,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

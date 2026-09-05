@@ -49,7 +49,6 @@ class AppResultChip extends StatelessWidget {
           horizontal: AppSpacing.x6,
           vertical: AppSpacing.x3,
         ),
-        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: background,
           borderRadius: BorderRadius.circular(AppRadii.chip),
@@ -59,7 +58,14 @@ class AppResultChip extends StatelessWidget {
               ? Border.all(color: palette.border)
               : null,
         ),
-        child: Text(glyph, style: type.label.copyWith(color: foreground)),
+        // A shrink-wrapping Center, not `Container.alignment`: a Container with
+        // an alignment expands to fill whatever it is given, which in a Wrap or
+        // a Row is the entire width. The chip has to hug its one letter.
+        child: Center(
+          widthFactor: 1,
+          heightFactor: 1,
+          child: Text(glyph, style: type.label.copyWith(color: foreground)),
+        ),
       ),
     );
   }

@@ -62,6 +62,25 @@ void main() {
     expect(_decorationOf(tester).color, AppPalette.dark.dangerWash);
   });
 
+  testWidgets('the chip hugs its letter instead of filling its parent', (
+    WidgetTester tester,
+  ) async {
+    // Regression: `Container.alignment` makes a Container expand to fill
+    // whatever it is given, so in the Wrap on a history row every chip
+    // stretched the full width of the screen. Caught on device, not here --
+    // the earlier tests only ever asserted height.
+    for (final ResultChipKind kind in ResultChipKind.values) {
+      await pumpThemed(tester, AppResultChip(kind: kind));
+      final double width = tester.getSize(find.byType(AppResultChip)).width;
+      expect(
+        width,
+        lessThan(60),
+        reason: '$kind stretched to ${width.toStringAsFixed(0)}px',
+      );
+      expect(width, greaterThanOrEqualTo(26));
+    }
+  });
+
   testWidgets('the chip grows rather than clipping at 200% text', (
     WidgetTester tester,
   ) async {
