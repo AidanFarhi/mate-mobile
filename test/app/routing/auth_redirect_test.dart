@@ -3,8 +3,12 @@ import 'package:mate/app/routing/auth_redirect.dart';
 import 'package:mate/app/routing/route_paths.dart';
 import 'package:mate/features/auth/auth_status.dart';
 
-/// Every route a user can be at, used to prove the redirect is total: no
-/// status/location pair falls through unhandled or loops.
+/// Every *product* route a user can be at, used to prove the redirect is total:
+/// no status/location pair falls through unhandled or loops.
+///
+/// `RoutePaths.gallery` is deliberately absent. It is a debug tool that is
+/// allowed in every auth state, so it would fail the "redirects everything"
+/// cases below for the right reason; its own group covers it instead.
 const List<String> _allLocations = <String>[
   RoutePaths.splash,
   RoutePaths.signIn,
@@ -110,6 +114,27 @@ void main() {
           reason: 'from $location',
         );
       }
+    });
+  });
+
+  group('gallery', () {
+    test('is reachable in every auth state', () {
+      // The design-system gallery (#3) is a development tool with no session of
+      // its own: it has to render before there is an account to sign into. It
+      // does not exist in release builds, so this exemption is debug-only.
+      for (final AuthStatus status in AuthStatus.values) {
+        expect(
+          resolveAuthRedirect(status: status, location: RoutePaths.gallery),
+          isNull,
+          reason: 'from $status',
+        );
+      }
+    });
+
+    test('is not in the pre-auth set', () {
+      // Being allowed everywhere is not the same as being a sign-in screen --
+      // signedIn must not get bounced off it to home.
+      expect(RoutePaths.preAuth, isNot(contains(RoutePaths.gallery)));
     });
   });
 
