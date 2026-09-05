@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mate/app/app.dart';
+import 'package:mate/app/theme/font_licenses.dart';
 import 'package:mate/features/auth/auth_controller.dart';
 
 void main() {
+  registerFontLicenses();
+
   final ProviderContainer container = ProviderContainer();
 
   // Kick off session resolution before the first frame. It is intentionally not

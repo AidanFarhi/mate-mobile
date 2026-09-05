@@ -24,3 +24,21 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Only the license texts are assets. The .ttf files are bundled by the `fonts`
+  # section below; listing the directory here would ship them a second time.
+  assets:
+    - assets/fonts/InstrumentSans-OFL.txt
+    - assets/fonts/JetBrainsMono-OFL.txt
+
+  # Both faces are variable fonts, bundled under the SIL Open Font License (the
+  # OFL.txt beside each). One file per family covers every weight the design
+  # uses: styles set `fontVariations` to pick one -- `fontWeight` alone would
+  # ask for a static instance these files do not contain.
+  fonts:
+    - family: Instrument Sans
+      fonts:
+        - asset: assets/fonts/InstrumentSans-Variable.ttf
+    - family: JetBrains Mono
+      fonts:
+        - asset: assets/fonts/JetBrainsMono-Variable.ttf
