@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +7,7 @@ import 'package:mate/app/routing/placeholder_screen.dart';
 import 'package:mate/app/routing/route_paths.dart';
 import 'package:mate/app/routing/tab_shell.dart';
 import 'package:mate/core/log/app_logger.dart';
+import 'package:mate/ui/gallery/gallery_screen.dart';
 import 'package:mate/features/auth/auth_controller.dart';
 import 'package:mate/features/auth/auth_status.dart';
 
@@ -78,6 +80,15 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         builder: (_, _) =>
             const PlaceholderScreen(title: 'Settings', issue: '#8'),
       ),
+
+      // Not registered in release: the gallery is a development tool, and a
+      // route that only exists in debug cannot be reached by a deep link in a
+      // shipped build.
+      if (kDebugMode)
+        GoRoute(
+          path: RoutePaths.gallery,
+          builder: (_, _) => const GalleryScreen(),
+        ),
 
       // Tab destinations.
       ShellRoute(

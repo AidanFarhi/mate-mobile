@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:mate/app/routing/route_paths.dart';
 import 'package:mate/features/auth/auth_status.dart';
 
@@ -16,6 +17,13 @@ String? resolveAuthRedirect({
   required AuthStatus status,
   required String location,
 }) {
+  // The gallery is not part of the product and has no auth state of its own.
+  // Exempting it keeps the four cases below about the product; the route it
+  // exempts does not exist in release, so this is unreachable there.
+  if (kDebugMode && location == RoutePaths.gallery) {
+    return null;
+  }
+
   return switch (status) {
     // Still resolving the session. Park on the splash and decide nothing.
     AuthStatus.unknown =>
