@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Minimal dark theme.
 ///
-/// Dark only, deliberately: `docs/ui_design.md` specifies a single dark theme
+/// Dark only, deliberately: `docs/design/ui_design.md` specifies a single dark theme
 /// and its token table defines no light values. Inventing a light palette would
 /// mean designing a second theme nobody approved.
 ///

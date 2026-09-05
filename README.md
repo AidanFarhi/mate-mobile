@@ -2,7 +2,7 @@
 
 Play chess with your friends. Flutter client, targeting iOS first.
 
-See [docs/software_design.md](docs/software_design.md) for the product and
+See [docs/design/software_design.md](docs/design/software_design.md) for the product and
 architecture overview.
 
 ## Prerequisites
@@ -75,7 +75,7 @@ lib/
 - **Routing:** [go_router](https://pub.dev/packages/go_router), with one
   `ShellRoute` for the three tab destinations and everything else pushed over
   it.
-- **Theme:** dark only. `docs/ui_design.md` specifies a single dark theme and
+- **Theme:** dark only. `docs/design/ui_design.md` specifies a single dark theme and
   defines no light palette.
 
 See [docs/adr/0001-state-management-and-routing.md](docs/adr/0001-state-management-and-routing.md)

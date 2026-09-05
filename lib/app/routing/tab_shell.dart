@@ -4,7 +4,7 @@ import 'package:mate/app/routing/route_paths.dart';
 
 /// Bottom tab bar wrapping the three top-level destinations.
 ///
-/// Structure only -- the styling in `docs/ui_design.md` (label sizes, the 5px
+/// Structure only -- the styling in `docs/design/ui_design.md` (label sizes, the 5px
 /// accent dot under the active tab, the hairline top border) lands with the
 /// design system in #3.
 ///

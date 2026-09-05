@@ -1,6 +1,6 @@
 /// Every route in the app, in one place.
 ///
-/// The set follows the nine screens in `docs/ui_design.md`. Two notes on how it
+/// The set follows the nine screens in `docs/design/ui_design.md`. Two notes on how it
 /// differs from the original list in #2:
 ///
 /// * There is no `/history`. The UI spec folds game history into the "You"

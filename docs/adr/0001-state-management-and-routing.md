@@ -10,8 +10,8 @@ Every feature issue (#5–#21) needs to read shared state and move between
 screens. Without a decision made once, up front, each feature invents its own
 pattern and the app ends up with three ways to do everything.
 
-`docs/software_design.md` calls for a client that is "easy to understand and
-maintain"; `docs/ui_design.md` specifies nine screens, a three-tab bottom bar,
+`docs/design/software_design.md` calls for a client that is "easy to understand and
+maintain"; `docs/design/ui_design.md` specifies nine screens, a three-tab bottom bar,
 and a set of pushed views.
 
 ## Decision
